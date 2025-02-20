@@ -1,7 +1,6 @@
 package com.gyeongmin.level04.advanced;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+
+import java.util.*;
 
 public class Application2 {
     public static void main(String[] args) {
@@ -31,8 +30,18 @@ public class Application2 {
              * */
         Scanner sc = new Scanner(System.in);
         int[] iarr = new int[4];
-        for(int i =0; i < 4; i++){
-            iarr[i] = (int) Math.round(Math.random()*9);
+        HashSet<Integer> set = new HashSet<>();
+        Random random = new Random();
+
+        // 중복되지 않는 난수 생성
+        while (set.size() < 4) {
+            int num = random.nextInt(10); // 0~9까지의 난수 생성
+            set.add(num);
+        }
+
+        int index = 0;
+        for (Integer num : set) {
+            iarr[index++] = num;
         }
         int cnt = 10;
         while(true){
